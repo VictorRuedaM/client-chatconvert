@@ -97,7 +97,7 @@ export const ChatScreen = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-emerald-200 w-[800px]">
+    <form onSubmit={handleSubmit} className="bg-teal-300 w-[800px] h-[200px] pt-10 rounded-md">
       <div className="flex mt-2 p-3 w-[750px] items-center place-content-between  rounded-md ">
         <span className="pointer-events-none  sm:text-sm pr-1 flex items-center pl-3 font-bold">
           $
@@ -151,7 +151,7 @@ export const ChatScreen = () => {
         </div>
       </div>
       <div className="flex  p-3  place-content-center ">
-        <button className="bg-blue-400 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">
+        <button className="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">
           <img
             className="h-6 w-12 inline-block mr-3"
             src={telegramIcon}

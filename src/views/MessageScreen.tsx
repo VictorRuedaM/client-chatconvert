@@ -1,5 +1,8 @@
 
 import { useChatStore } from "../store/chat.store";
+import colFlag from '../assets/FlagofColombia.ico';
+import usaFlag from '../assets/UnitedStatesflag.ico';
+
 
 export const MessageScreen = () => {
 
@@ -7,19 +10,25 @@ export const MessageScreen = () => {
   const useChat = useChatStore((state) => state.chats);
   
   return (
-    <div>
-      {
-        useChat.map(({base, target, amount, result, date, from}) => (
+    <div className="w-[800px]  overflow-y-auto scrollbar-w-2  my-6  p-3">
 
-          <div key={result} className={from?.length ? 'bg-orange-400' : 'bg-lime-400'}>
-            <p>{base}</p>
-            <p>{target}</p>
-            <p>{amount}</p>
-            <p>{result}</p>
-            <p>{date}</p>
-          </div>
-        ))
-      }
+      
+
+          {
+            useChat.map(({base, target, amount, result, date, from}) => (
+
+              <div key={result} className={from?.length ? 'bg-green-100 text-gray-600 my-2 p-2 table text-sm rounded-md w-[300px] ' 
+              : 'bg-blue-100  text-gray-600 my-2 p-2 table text-sm rounded-md w-[300px] ml-auto'}>
+                <p className="py-1">Moneda: {base} {base !== 'USD' ? <img className="h-4 w-4 inline-block" src={colFlag} alt="Flag" /> : <img className="h-4 w-4 inline-block" src={usaFlag} alt="Flag" />}</p>
+                <p className="py-1">Moneda de cambio: {target} {target !== 'USD' ? <img className="h-4 w-4 inline-block" src={colFlag} alt="Flag" /> : <img className="h-4 w-4 inline-block" src={usaFlag} alt="Flag" />}</p>
+                <p className="py-1">Monto a cambiar: <strong>$ {amount}</strong></p>
+                <p className="py-1">Monto convertido: <strong>$ {result}</strong></p>
+                <p className="py-1">Fecha de la transacción: {date}</p>
+              </div>
+            ))
+          }
+
+    
     </div>
   )
 }
