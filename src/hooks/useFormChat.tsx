@@ -4,20 +4,13 @@ import { useChatStore } from "../store/chat.store";
 
 const SOCKETIO_URL = import.meta.env.VITE_SOCKET_IO_URL;
 
-
-
-
-
 import { io } from "socket.io-client";
-
-
-
 
 const socket = io(`${SOCKETIO_URL}`);
 
 export const useFormChat = () => {
   const saveData = useChatStore((state) => state.saveChat);
-  
+
   const [base, setBase] = useState<string>("");
   const [target, setTarget] = useState<string>("");
   const [amount, setAmount] = useState<string>("");
@@ -112,7 +105,5 @@ export const useFormChat = () => {
     target,
     amount,
     errors,
-
-
   };
 };

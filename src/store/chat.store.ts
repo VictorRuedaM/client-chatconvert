@@ -1,12 +1,15 @@
-import {create} from 'zustand';
-import { ChatStoreInterface, DataChatInterface } from '../interfaces/chatStore.interface';
-
+import { create } from "zustand";
+import {
+  ChatStoreInterface,
+  DataChatInterface,
+} from "../interfaces/chatStore.interface";
 
 export const useChatStore = create<ChatStoreInterface>((set) => {
-  return({
+  return {
     chats: [],
-    saveChat: (data: DataChatInterface) => set(state => ({
-      chats: [...state.chats, data]
-    }))
-  })
-})
+    saveChat: (data: DataChatInterface) =>
+      set((state) => ({
+        chats: [...state.chats, data],
+      })),
+  };
+});

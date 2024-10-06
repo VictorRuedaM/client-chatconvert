@@ -1,9 +1,7 @@
-
 export interface ChatStoreInterface {
   chats: DataChatInterface[];
   saveChat: (data: DataChatInterface) => void;
 }
-
 
 export interface DataChatInterface {
   base: string;

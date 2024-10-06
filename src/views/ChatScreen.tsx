@@ -1,26 +1,10 @@
-
 import telegramIcon from "../assets/telegram-logo.ico";
 import cashIcon from "../assets/cash.ico";
 import arrow from "../assets/arrow.ico";
 
-
-
 import { useFormChat } from "../hooks/useFormChat";
 
-
-
-
-
-
-
-
-
-
-
 export const ChatScreen = () => {
-
-  
-
   const {
     handleChooseCurrency,
     handleAmount,
@@ -32,7 +16,10 @@ export const ChatScreen = () => {
   } = useFormChat();
 
   return (
-    <form onSubmit={handleSubmit} className="bg-teal-300 w-[800px] h-[200px] pt-10 rounded-md">
+    <form
+      onSubmit={handleSubmit}
+      className="bg-teal-300 w-[800px] h-[200px] pt-10 rounded-md"
+    >
       <div className="flex mt-2 p-3 w-[750px] items-center place-content-between  rounded-md ">
         <span className="pointer-events-none  sm:text-sm pr-1 flex items-center pl-3 font-bold">
           $
@@ -98,5 +85,3 @@ export const ChatScreen = () => {
     </form>
   );
 };
-
-

@@ -5,22 +5,16 @@ import { Header } from "./components/Header";
 
 const SOCKETIO_URL = import.meta.env.VITE_SOCKET_IO_URL;
 
-
 const socket = io(`${SOCKETIO_URL}`);
 
 export const App = () => {
   return (
-    
-
     <div className="h-screen flex flex-col items-center justify-end pb-10 bg-slate-800">
-          <Header />
-          
-          <MessageScreen />
-          
-          <ChatScreen />
-    
+      <Header />
+
+      <MessageScreen />
+
+      <ChatScreen />
     </div>
-    
-    
-  )
-}
+  );
+};
