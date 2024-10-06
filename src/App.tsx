@@ -3,8 +3,10 @@ import { ChatScreen } from "./views/ChatScreen";
 import { MessageScreen } from "./views/MessageScreen";
 import { Header } from "./components/Header";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const socket = io(`http://localhost:3005`);
+const SOCKETIO_URL = import.meta.env.VITE_SOCKET_IO_URL;
+
+
+const socket = io(`${SOCKETIO_URL}`);
 
 export const App = () => {
   return (
