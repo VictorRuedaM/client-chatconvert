@@ -18,28 +18,26 @@ export const ChatScreen = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-teal-300 w-[800px] h-[200px] pt-10 rounded-md"
+      className="bg-slate-900 w-[300px] h-[400px] pt-3 rounded-md sm:w-[800px] sm:h-[280px] flex items-center justify-center"
     >
-      <div className="flex mt-2 p-3 w-[750px] items-center place-content-between  rounded-md ">
-        <span className="pointer-events-none  sm:text-sm pr-1 flex items-center pl-3 font-bold">
-          $
-        </span>
+      <div className="flex mt-2 pl-3 w-[300px] sm:w-[750px] sm:items-center  sm:place-content-between  rounded-md flex-col space-y-4">
+        
 
         <input
           type="number"
           min={0}
           value={amount}
           onChange={handleAmount}
-          placeholder="0.00"
+          placeholder="$ 0.00"
           className={
             errors.amount
-              ? " h-[35px]  w-[200px] rounded-md border-4 border-red-700 py-1 pl-3 pr-1 mr-3 bg-white focus:ring-red-700 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
-              : " h-[35px]  w-[200px] rounded-md border-0 py-1 pl-3 pr-1 mr-3 bg-white focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+              ? " h-[35px]  w-[200px] rounded-md border-4 border-red-700  pl-3 pr-1 mr-3 bg-white focus:ring-red-700 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+              : " h-[35px]  w-[200px] rounded-md border-0  pl-3 pr-1 mr-3 bg-white focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
           }
         />
-        <div className=" inset-y-0 right-0 flex items-center">
+        <div className="flex sm:items-center sm:flex-row flex-col space-y-4">
           <img
-            className="h-6 w-6 inline-block mr-3"
+            className="h-6 w-6 inline-block mr-3 mt-3"
             src={cashIcon}
             alt="Telegram Icon"
           />
@@ -71,17 +69,22 @@ export const ChatScreen = () => {
             disabled
           />
         </div>
+        <div className="flex  p-3  place-content-center ">
+          <button className="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">
+            <img
+              className="h-6 w-12 inline-block mr-3"
+              src={telegramIcon}
+              alt="Telegram Icon"
+            />
+            Enviar
+          </button>
       </div>
-      <div className="flex  p-3  place-content-center ">
-        <button className="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">
-          <img
-            className="h-6 w-12 inline-block mr-3"
-            src={telegramIcon}
-            alt="Telegram Icon"
-          />
-          Enviar
-        </button>
+      {
+        errors.base || errors.amount ? <label className="text-red-500">* Verifique los campos de ingreso</label> : null
+      }
+      
       </div>
+      
     </form>
   );
 };
